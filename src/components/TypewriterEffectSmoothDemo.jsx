@@ -43,18 +43,18 @@ const words = [
       <p className="text-white text-center mb-10">Welcome to PIXELCODE, a flexible code editor for any programming language. Write, save, and manage your code with ease using its intuitive interface and powerful features.</p>
       <div
         className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <Link onClick={handleguest}
+        <button onClick={handleguest}
           className="w-40 flex justify-center items-center h-12 rounded-xl z-10 bg-black border dark:border-white border-transparent text-white text-lg">
           Explore now
-        </Link>
+        </button>
         {!isLoggedin && <Link to={'signup'}
           className="w-40 flex justify-center items-center h-12 z-10 rounded-xl bg-white text-black border border-black roboto text-lg">
           Signup
         </Link>}
-        {isLoggedin && userData.isAccountVerified && <Link onClick={handlebtn}
+        {isLoggedin && userData.isAccountVerified && <button onClick={handlebtn}
           className="w-48 flex justify-center items-center h-12 z-10 rounded-xl bg-white text-black border border-black roboto text-lg">
           Code Play Ground
-        </Link>}
+        </button>}
         {isLoggedin && !userData.isAccountVerified && <button onClick={()=> toast.error("Please verify your email first.")}
           className="w-48 flex justify-center items-center h-12 z-10 rounded-xl bg-white text-black border border-black roboto text-lg">
           Code Play Ground

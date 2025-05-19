@@ -758,6 +758,29 @@ return (
                 </PanelGroup>
             </div>
         </div>
+      <style jsx>{`
+        
+          
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: "#1a1a1f";
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: "#3d3d4d";
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: "#4d4d5d";
+        }
+
+      `}</style>
     </div>
 );
 };

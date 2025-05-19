@@ -330,7 +330,7 @@ const handleupdate = async() => {
 
 
 const [showshare, setshowshare] = useState(false);
-const [slink, setslink] = useState(sessionStorage.getItem('slink') || 'http://localhost:5173/guest/')
+const [slink, setslink] = useState(sessionStorage.getItem('slink') || 'https://pixelcode-nine.vercel.app/guest/')
 const [haveid, sethaveid] = useState(sessionStorage.getItem('haveid') === 'true' || false)
 const { isLoggedin } = useContext(AppContent);
 useEffect(() => {

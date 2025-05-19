@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast';
-import { AppContent } from '../context/Appcontex';
+import { AppContent } from '../context/AppContex';
 import { useNavigate } from 'react-router-dom';
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";

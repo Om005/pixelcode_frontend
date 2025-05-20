@@ -249,7 +249,7 @@ useEffect(() => {
                         <img onClick={()=>{
                           navigator.clipboard.writeText(message.content);
 
-                          toast.success("Response to clipboard");
+                          toast.success("Response copied to clipboard");
                         }} src="./svgs/copy.svg" className="invert copy absolute -bottom-12 mt-1 left-1 cursor-pointer hover:bg-[#D8D7DD] p-2 rounded-lg" alt="" />
                     <Markdown rehypePlugins={[rehypePrism]}>
 

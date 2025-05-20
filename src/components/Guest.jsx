@@ -106,6 +106,10 @@ const Dashboard = () => {
   };
 
   const handlerun = async () => {
+    if(selectedLanguage==="none" || selectedLanguage==="Text"){
+       toast.error("This file cannot be executed");
+      return;
+    }
     setsee(true);
     document.querySelector(".run").style.backgroundColor = "#4461BD";
     document.querySelector(".run").children[1].innerHTML = "Running...";

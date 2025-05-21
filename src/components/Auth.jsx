@@ -27,7 +27,7 @@ export default function Auth() {
   return (
     <div
     className={cn(
-        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
+        "rounded-md flex flex-col md:flex-row bg-neutral-800 w-full flex-1 mx-auto border border-neutral-700 overflow-hidden",
         "h-[100vh]"
       )}
       >
@@ -308,7 +308,7 @@ useEffect(() => {
   const extoname = {txt: "text", "":"none", js: "javascript",py: "python",java: "java",cs: "csharp",cpp: "cpp",go: "go", rs: "rust",kt: "kotlin",pl: "perl",php: "php",rb: "ruby",swift: "swift",c: "c",sh: "bash"};
   return (
     <div className="flex flex-1 overflow-hidden">
-        <div className=" p-2 md:p-3 rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full overflow-hidden">
+        <div className=" p-2 md:p-3 rounded-tl-2xl border border-neutral-700 bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full overflow-hidden">
             <div className="flex gap-2 nunito">
                 <div className="h-12 w-full rounded-lg  bg-gray100 dar:bg-neutral-800 flex justify-start items-center">
                     <Link

@@ -20,7 +20,7 @@ const words = [
     },
     {
         text: "\u00A0PIXELCODE.",
-        className: "text-blue-500 dark:text-blue-500",
+        className: "text-blue-500",
     },
 ];
 
@@ -44,7 +44,7 @@ const words = [
       <div
         className="flex flex-col items-center md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
         <button onClick={handleguest}
-          className="w-40 flex justify-center items-center h-12 rounded-xl z-10 bg-black border dark:border-white border-transparent text-white text-lg">
+          className="w-40 flex justify-center items-center h-12 rounded-xl z-10 bg-black border border-white border-transparent text-white text-lg">
           Explore now
         </button>
         {!isLoggedin && <Link to={'signup'}

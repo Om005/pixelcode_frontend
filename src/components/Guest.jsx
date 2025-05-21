@@ -16,7 +16,7 @@ export default function Guest() {
   return (
     <div
       className={cn(
-        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
+        "rounded-md flex flex-col md:flex-row bg-neutral-800 w-full flex-1 mx-auto border border-neutral-700 overflow-hidden",
         "h-[100vh]"
       )}
     >
@@ -345,7 +345,7 @@ useEffect(() => {
   }, [location.state]);
 return (
     <div className="flex flex-1 overflow-hidden">
-        <div className=" p-2 md:p-3 rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full overflow-hidden">
+        <div className=" p-2 md:p-3 rounded-tl-2xl border border-neutral-700 bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full overflow-hidden">
             <div className="flex gap-2 nunito">
                 <div className="h-12 w-full rounded-lg  bg-gray100 dar:bg-neutral-800 flex justify-start items-center">
                     <Link
@@ -386,10 +386,10 @@ return (
                     </button>
                     {showshare && !haveid && (
                         <div className="fixed inset-0 z-30 bg-black bg-opacity-50 flex items-center justify-center">
-                            <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-6 max-w-sm w-full">
+                            <div className="bg-neutral-800 rounded-lg shadow-lg p-6 max-w-sm w-full">
                                 <div className="flex items-center justify-between mb-4">
 
-                                <h2 className=" ml-1 text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Share</h2>
+                                <h2 className=" ml-1 text-lg font-semibold text-gray-100 mb-2">Share</h2>
                             <button onClick={()=> {setshowshare(false);}}> 
 
                                 <img className="cursor-pointer hover:bg-[#ac2e2e] rounded-lg p-2" src="./svgs/cross.svg" alt="" />
@@ -411,10 +411,10 @@ return (
                     )}
                     {showshare && haveid && (
                         <div className="fixed inset-0 z-30 bg-black bg-opacity-50 flex items-center justify-center">
-                            <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-6 max-w-sm w-full">
+                            <div className="bg-neutral-800 rounded-lg shadow-lg p-6 max-w-sm w-full">
                                 <div className="flex items-center justify-between mb-4">
 
-                                <h2 className=" ml-1 text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Share</h2>
+                                <h2 className=" ml-1 text-lg font-semibold text-gray-100 mb-2">Share</h2>
                                 <button onClick={()=> {setshowshare(false);}}> 
 
                                 <img className="cursor-pointer hover:bg-[#ac2e2e] rounded-lg p-2" src="./svgs/cross.svg" alt="" />

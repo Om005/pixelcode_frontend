@@ -7,7 +7,7 @@ export function GlowingEffectDemo() {
       className="p-10 grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
       <GridItem
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-        icon={<Box className="h-4 w-4 text-black dark:text-neutral-400" />}
+        icon={<Box className="h-4 w-4 text-neutral-400" />}
         title="Run Any Programming Language"
         description="Seamlessly execute code in over 30+ languages with blazing-fast performance." />
       <GridItem

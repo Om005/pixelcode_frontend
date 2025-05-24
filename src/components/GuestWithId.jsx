@@ -22,8 +22,8 @@ const GuestWithId = () => {
           navigate('/notfound');
           return;
         }
-        sessionStorage.setItem('lang', response.data.file.lang);
-        sessionStorage.setItem('code', response.data.file.code);  
+        localStorage.setItem('lang', response.data.file.lang);
+        localStorage.setItem('code', response.data.file.code);  
         // After fetching, navigate to /guest
         // navigate('/guest');
         navigate('/guest', {

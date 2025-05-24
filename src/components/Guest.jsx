@@ -28,26 +28,26 @@ const Dashboard = () => {
   const monaco = useMonaco();
  const location = useLocation();
   const [selectedLanguage, setSelectedLanguage] = useState(
-    localStorage.getItem("lang") === null
+    sessionStorage.getItem("lang") === null
       ? "javascript"
-      : localStorage.getItem("lang")
+      : sessionStorage.getItem("lang")
   );
   const [ip, setip] = useState(
-    localStorage.getItem("ip") ? "" : localStorage.getItem("ip")
+    sessionStorage.getItem("ip") ? "" : sessionStorage.getItem("ip")
   );
   const [output, setoutput] = useState("");
   const [code, setcode] = useState(
-    localStorage.getItem("code") === null
+    sessionStorage.getItem("code") === null
       ? languages["javascript"].boilerplate
-      : localStorage.getItem("code")
+      : sessionStorage.getItem("code")
   );
   const [type, settype] = useState(
-    localStorage.getItem("code") == null
+    sessionStorage.getItem("code") == null
       ? "text/javascript"
-      : localStorage.getItem("ex")
+      : sessionStorage.getItem("ex")
   );
   const [extension, setextension] = useState(
-    localStorage.getItem("ex") === null ? ".js" : localStorage.getItem("ex")
+    sessionStorage.getItem("ex") === null ? ".js" : sessionStorage.getItem("ex")
   );
 
   const [hovered, setHovered] = useState(false);
@@ -77,12 +77,12 @@ const Dashboard = () => {
 
   const handleChange = (e) => {
     setSelectedLanguage(e.target.value);
-    localStorage.setItem("lang", e.target.value);
+    sessionStorage.setItem("lang", e.target.value);
     setcode(languages[e.target.value].boilerplate);
-    localStorage.setItem("code", languages[e.target.value].boilerplate);
+    sessionStorage.setItem("code", languages[e.target.value].boilerplate);
     settype(languages[e.target.value].type);
     setextension(languages[e.target.value].extension);
-    localStorage.setItem("ex", languages[e.target.value].extension);
+    sessionStorage.setItem("ex", languages[e.target.value].extension);
   };
 
   const handlefile = (e) => {
@@ -91,7 +91,7 @@ const Dashboard = () => {
       const reader = new FileReader();
       reader.onload = (e) => {
         setip(e.target.result);
-        localStorage.setItem("ip", e.target.value);
+        sessionStorage.setItem("ip", e.target.value);
       };
       reader.readAsText(f);
     }
@@ -171,7 +171,7 @@ const Dashboard = () => {
         reader.onload = function (e) {
           const code = e.target.result; // The file content
           setcode(code);
-          localStorage.setItem("code", code);
+          sessionStorage.setItem("code", code);
         };
         reader.readAsText(file); // Read the file content as text
       }
@@ -229,7 +229,7 @@ useEffect(() => {
       const reader = new FileReader();
       reader.onload = (event) => {
         setip(event.target.result); // Set file content
-        localStorage.setItem("ip", event.target.result); // Save to localStorage
+        sessionStorage.setItem("ip", event.target.result); // Save to sessionStorage
       };
       reader.readAsText(file); // Read file as text
     }
@@ -261,7 +261,7 @@ useEffect(() => {
       const reader = new FileReader();
       reader.onload = (event) => {
         setcode(event.target.result); // Set file content to the editor
-        localStorage.setItem("code", event.target.result); // Save to localStorage
+        sessionStorage.setItem("code", event.target.result); // Save to sessionStorage
       };
       reader.readAsText(file); // Read file as text
     }
@@ -549,7 +549,7 @@ return (
                                                             setcode(
                                                                 languages[selectedLanguage].boilerplate
                                                             );
-                                                            localStorage.setItem(
+                                                            sessionStorage.setItem(
                                                                 "code",
                                                                 languages[selectedLanguage].boilerplate
                                                             );
@@ -651,7 +651,7 @@ return (
             value={code}
             onChange={(e) => {
                 setcode(e);
-                localStorage.setItem("code", e);
+                sessionStorage.setItem("code", e);
             }}
             className="z-10"
             height="100%"
@@ -682,7 +682,7 @@ return (
                                     const reader = new FileReader();
                                     reader.onload = (event) => {
                                         setip(event.target.result); // Set file content
-                                        localStorage.setItem("ip", event.target.result); // Save to localStorage
+                                        sessionStorage.setItem("ip", event.target.result); // Save to sessionStorage
                                     };
                                     reader.readAsText(file); // Read file as text
                                 }
@@ -710,7 +710,7 @@ return (
                     value={ip}
                     onChange={(e) => {
                         setip(e.target.value);
-                        localStorage.setItem("ip", e.target.value);
+                        sessionStorage.setItem("ip", e.target.value);
                     }}
                     placeholder="Type or drag and drop your input here..."
                     className="w-full h-full resize-none overflow-scroll custom-scrollbar bg-[#1E1E1E] text-white outline-none rounded-lg p-2"

@@ -89,11 +89,6 @@ setTimeout(() => {
           <Label htmlFor="twitterpassword">Your twitter password</Label>
           <Input id="twitterpassword" placeholder="••••••••" type="twitterpassword" />
           </LabelInputContainer> */}
-        <p className="text-blue-700 mb-2 cursor-pointer">
-          <Link to={'/reset-password'}>
-          Forgot Password?
-          </Link>
-        </p>
         <button
           className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit">

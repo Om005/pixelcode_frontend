@@ -120,7 +120,8 @@ useEffect(() => {
         const rsp = await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/chat/response", { message });
         return rsp.data.data;
       }
-      let msg = "if user dont give any code and tell you this code or this file, something like that then refer to this code file\n"+fname+"\n"+arg+"\n else give normal response like you do everytime\n, user is asking/telling:\n"+message
+      //let msg = "if user dont give any code and tell you this code or this file, something like that then refer to this code file\n"+fname+"\n"+arg+"\n else give normal response like you do everytime\n, user is asking/telling:\n"+message
+      let msg = `In case the question refers to "this code" or "this file" without providing specific code, please consider the following as the context:\nFilename: ${fname}\nCode: ${arg}\n\nOtherwise, proceed normally.\n\nUser says:\n${message}`;
 
       const rsp = await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/chat/response", { message: msg });
       return rsp.data.data;

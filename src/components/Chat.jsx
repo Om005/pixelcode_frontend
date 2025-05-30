@@ -230,7 +230,7 @@ useEffect(() => {
             How can I help you today?
           </div>
         ) : (
-          <div className="space-y-4 w-full pt-24 mt-5 max-w-[75%] mx-auto">
+          <div className="space-y-4 w-full pt-24 pb-12 mt-5 max-w-[75%] mx-auto">
             {messages.map((message) => (
               <div key={message.id} className={`flex text-l ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
                 {message.sender==="ai" && <span className="h-fit px-2 py-2 rounded-full bg-[#312E81] mr-5 -ml-8">

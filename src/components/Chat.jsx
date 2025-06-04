@@ -117,6 +117,7 @@ useEffect(() => {
   const getAIResponse = async (message) => {
     try{
       if(isrefer === false || fname===""){
+        message = "write full name of language where ever you are using it (like cpp instead of c++)\n\n now respond to user\nuser is asking/telling:\n"+message;
         const rsp = await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/chat/response", { message });
         return rsp.data.data;
       }

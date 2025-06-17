@@ -284,15 +284,32 @@ useEffect(() => {
 const handleshare = async() => {
     // setshowshare(true);
     document.querySelector(".sharef").innerHTML = "Generating Link...";
-    const shareid = await axios.post(
-        import.meta.env.VITE_BACKEND_URL + "/api/file/generate-link",
-        {
-            code: code,
-            lang: selectedLanguage,
-        }
-    )
+    let shareid;
+    if(isLoggedin){
+
+        shareid = await axios.post(
+            import.meta.env.VITE_BACKEND_URL + "/api/file/generate-link",
+            {
+                email: userData.email,
+                code: code,
+                lang: selectedLanguage,
+                date: Date.now()
+            }
+        )
+    }
+    else{
+        shareid = await axios.post(
+            import.meta.env.VITE_BACKEND_URL + "/api/file/generate-link",
+            {
+                code: code,
+                lang: selectedLanguage,
+            }
+        )
+
+    }
     document.querySelector(".sharef").innerHTML = "Copy Link";
     if(shareid.data.success){
+        toast.success("Link generated");
         sessionStorage.setItem('slink', slink+shareid.data.id);
         setslink(slink+shareid.data.id);
     }

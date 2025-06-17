@@ -26,11 +26,23 @@ const GuestWithId = () => {
         sessionStorage.setItem('code', response.data.file.code);  
         // After fetching, navigate to /guest
         // navigate('/guest');
-        navigate('/guest', {
+          const key = localStorage.getItem('key12390');
+          if(key===undefined){
+              navigate('/guest', {
   state: {
     haveid: false,
     slink: `https://pixelcode-nine.vercel.app/guest/`,
   }
+          }
+            else{
+              localStorage.removeItem('key12390');
+              navigate('/guest', {
+  state: {
+    haveid: true,
+    slink: `https://pixelcode-nine.vercel.app/guest/${id}`,
+  }
+            }
+        
 });
       } catch (error) {
         console.error("Fetch failed", error);

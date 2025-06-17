@@ -32,7 +32,7 @@ export default function Links() {
         //   console.log(res.data.Links);
           const fetchedLinks = res.data.Links.map(link => ({
   id: Date.now().toString() + Math.random().toString(36).slice(2),
-  url: `http://localhost:5173/guest/${link.id}`,
+  url: `http://pixelcode-nine.vercel.app/guest/${link.id}`,
   title: link.title,
   description: link.desc,
   language: link.lang,

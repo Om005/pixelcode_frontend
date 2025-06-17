@@ -358,7 +358,7 @@ const FileNode = ({ node, depth = 0 }) => {
           <button
             className="px-4 py-2 rounded-md text-sm font-medium editbtn text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             onClick={async () => {
-              const rsp = await handlerename(newFilename, node._id);
+              const rsp = await handlerename(newFilename, node);
               setShowEditPopup({ open: false, nodeId: "" });
             }}
             disabled={!newFilename.trim()}
@@ -461,7 +461,7 @@ const FileNode = ({ node, depth = 0 }) => {
   );
 };
 
-const handlerename = async(name, id) => {
+const handlerename = async(name, node) => {
   if(name == "" || name.startsWith(".")){
     toast.error("Please enter a name for the file");
     return;
@@ -498,7 +498,7 @@ const handlerename = async(name, id) => {
     const result = await dispatch(
       renameNode({
         email: userData.email,
-        nodeId: id,
+        nodeId: node._id,
         newName: name,
       })
     );
@@ -507,10 +507,17 @@ const handlerename = async(name, id) => {
       if(ext === undefined || ext === ""){
         ext = "txt";
       }
-      dispatch(setCurrFile(...[{ name:name, language: ext }]));
+      if(node.kind=="file"){
+        dispatch(setCurrFile(...[{ name:name, language: ext }]));
+        toast.success("File renamed successfully");
+      }
+      else{
+        toast.success("Folder renamed successfully");
+      }
+      
 
 
-      toast.success("File renamed successfully");
+      
       const rsp = await dispatch(getFiles(userData.email));
 
     }else{

@@ -14,6 +14,7 @@ import Chat from './components/Chat';
 import Contact from './components/Contact';
 import About from './components/About';
 import ResetPassword from './components/ResetPassword';
+import Links from './components/Links';
 
 function BodyClassManager() {
   const location = useLocation();
@@ -54,6 +55,7 @@ function App() {
         <Route path='/chat' element={<Chat />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
+        <Route path='/links' element={<Links />} />
         <Route path='/reset-password' element={<ResetPassword />} />
       </Routes>
     </Router>

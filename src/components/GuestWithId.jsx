@@ -27,7 +27,7 @@ const GuestWithId = () => {
         // After fetching, navigate to /guest
         // navigate('/guest');
           const key = localStorage.getItem('key12390');
-          if(key===undefined){
+          if(key===null){
               navigate('/guest', {
   state: {
     haveid: false,
@@ -46,7 +46,7 @@ const GuestWithId = () => {
       } catch (error) {
         console.error("Fetch failed", error);
         // Optionally navigate to an error page or /guest anyway
-        navigate('/notound');
+        navigate('/notfound');
         toast.error("Some error occurred");
       }
     };

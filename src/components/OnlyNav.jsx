@@ -43,27 +43,35 @@ export function OnlyNav() {
   const {userData, setuserData, isLoggedin, backendurl, setisLoggedin} = useContext(AppContent)
   // const {userData, setuserData, isLoggedin} = useContext(AppContent)
   const navItems = [
-    {
-      name: "About",
-      link: "/about",
-    },
-    {
-      name: "AI Assistant",
-      link: "/chat",
-    },
-    {
-      name: "Contact",
-      link: "/contact",
-    },
-    ...(!userData.isAccountVerified && isLoggedin
+    ...(isLoggedin
       ? [
           {
-            name: "VerifyEmail",
-            link: "/email-verify",
+            name: "Links",
+            link: "/links",
           },
         ]
-      : [])
-  ];
+      : []),
+  {
+    name: "About",
+    link: "/about",
+  },
+  {
+    name: "AI Assistant",
+    link: "/chat",
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+  },
+  ...(!userData.isAccountVerified && isLoggedin
+    ? [
+        {
+          name: "VerifyEmail",
+          link: "/email-verify",
+        },
+      ]
+    : []),
+];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

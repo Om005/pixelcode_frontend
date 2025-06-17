@@ -15,7 +15,7 @@ import Auth from "./Auth";
 import { AppContent } from "../context/AppContex";
 import { Navigate, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { addFile, addFolder, deleteNode, getFiles, renameNode } from "../features/fileSlicer";
+import { addFile, addFolder, deleteNode, getFiles, renameNode, GetNode } from "../features/fileSlicer";
 import { setCurrFile } from "../features/fileSlicer";
 import languages from "../constants/info";
 import { Link } from "react-router-dom";
@@ -512,6 +512,8 @@ const handlerename = async(name, node) => {
         toast.success("File renamed successfully");
       }
       else{
+        const rsp = await dispatch(GetNode({nodeId: currfile._id}));
+        dispatch(setCurrFile(rsp.payload.node ));
         toast.success("Folder renamed successfully");
       }
       

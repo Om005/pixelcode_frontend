@@ -32,7 +32,7 @@ const GuestWithId = () => {
   state: {
     haveid: false,
     slink: `https://pixelcode-nine.vercel.app/guest/`,
-  }
+  }});
           }
             else{
               localStorage.removeItem('key12390');
@@ -40,10 +40,9 @@ const GuestWithId = () => {
   state: {
     haveid: true,
     slink: `https://pixelcode-nine.vercel.app/guest/${id}`,
-  }
+  }});
             }
         
-});
       } catch (error) {
         console.error("Fetch failed", error);
         // Optionally navigate to an error page or /guest anyway

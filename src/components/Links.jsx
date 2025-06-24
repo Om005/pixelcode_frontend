@@ -4,10 +4,11 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 import { AppContent } from "../context/AppContex"
+import { useContext } from "react"
 
 export default function Links() {
   const navigate = useNavigate()
-  const { userData } = useContext(AppContent)
+  const { userData, isLoggedin, isLoading } = useContext(AppContent)
   const [links, setLinks] = useState([])
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
   const [editingLink, setEditingLink] = useState(null)
@@ -19,6 +20,13 @@ export default function Links() {
   })
 
   const [searchQuery, setSearchQuery] = useState("")
+
+  useEffect(() => {
+      if(!isLoggedin && !isLoading){
+          navigate("/notfound");
+          toast.error("User is not authorized");
+      }
+    }, [isLoading, isLoggedin])
 
   useEffect(() => {
     if (userData.email === undefined) return

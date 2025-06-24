@@ -150,10 +150,10 @@ const Dashboard = () => {
       setoutput(response.data.stdout);
     }
     document.querySelector(".op").classList.remove("animate-pulse");
-    document.querySelector(".run").style.backgroundColor = "#22C55E";
-    document.querySelector(".run").children[1].innerHTML = "Run";
-    document.querySelector(".run").children[0].src = "./svgs/play.svg";
-    document.querySelector(".run").children[0].classList.add("invert");
+    document.querySelector(".").style.backgroundColor = "#22C55E";
+    document.querySelector(".").children[1].innerHTML = "";
+    document.querySelector(".").children[0].src = "./svgs/play.svg";
+    document.querySelector(".").children[0].classList.add("invert");
   };
 
   const handleimport = () => {
@@ -202,10 +202,10 @@ useEffect(() => {
           document.querySelector(".ioio").click()
         }
         if (e.key === "'" && e.ctrlKey) {
-            document.querySelector(".run").click()
+            document.querySelector(".").click()
         }
         if (e.key === "F2") {
-            document.querySelector(".run").click()
+            document.querySelector(".").click()
         }
         if ((e.key === "S" || e.key==="s") && e.ctrlKey && e.shiftKey) {
             document.querySelector(".dwnld").click()
@@ -477,6 +477,12 @@ return (
                     >
                         <img src="./imgs/login.png" className="w-5 invert" alt="" /> Sign
                         in
+                    </Link>}
+                  {isLoggedin && <Link
+                        to={"/links"}
+                        className="px-4 m hover:translate-x-1 duration-200 py-2 text-lg bg-[#0BA6ECCC] text-white flex gap-2 items-center rounded-lg hover:bg-sky-600 focus:outline-none w-full md:w-auto"
+                    >
+                        Links
                     </Link>}
                 </div>
             </div>

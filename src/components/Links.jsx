@@ -4,7 +4,6 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
 import { AppContent } from "../context/AppContex"
-import { useContext } from "react"
 
 export default function Links() {
   const navigate = useNavigate()

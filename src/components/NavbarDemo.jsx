@@ -47,14 +47,10 @@ export function NavbarDemo() {
   const {userData, setuserData, isLoggedin, backendurl, setisLoggedin} = useContext(AppContent)
   // const {userData, setuserData, isLoggedin} = useContext(AppContent)
   const navItems = [
-    ...(isLoggedin
-      ? [
-          {
-            name: "Links",
-            link: "/links",
-          },
-        ]
-      : []),
+  {
+    name: "Links",
+    link: "/links",
+  },
   {
     name: "About",
     link: "/about",

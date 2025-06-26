@@ -18,30 +18,64 @@ export function ContactForm() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    const form = { ...formData };
-    const res = await axios.post(
-        import.meta.env.VITE_BACKEND_URL+"/api/user/sendemail",
-        form,
-        { headers: { "Content-Type": "application/json" } }
-      );
-    // Simulate form submission delay
-      if (res.data.success) {
-    toast.success( "Thank you, we'll get back to you as soon as possible.")
-      }
-      else{
-        toast.error("Something went wrong, please try again later.")
-      }
+    // e.preventDefault()
+    // setIsSubmitting(true)
+    // const form = { ...formData };
+    // const res = await axios.post(
+    //     import.meta.env.VITE_BACKEND_URL+"/api/user/sendemail",
+    //     form,
+    //     { headers: { "Content-Type": "application/json" } }
+    //   );
+    // // Simulate form submission delay
+    //   if (res.data.success) {
+    // toast.success( "Thank you, we'll get back to you as soon as possible.")
+    //   }
+    //   else{
+    //     toast.error("Something went wrong, please try again later.")
+    //   }
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
+    // setFormData({
+    //   name: "",
+    //   email: "",
+    //   subject: "",
+    //   message: "",
+    // })
 
-    setIsSubmitting(false)
+    // setIsSubmitting(false)
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = new FormData();
+    form.append("access_key", import.meta.env.VITE_WEB_API);
+    form.append("name", formData.name);
+    form.append("email", formData.email);
+    form.append("subject", formData.subject);
+    form.append("message", formData.message);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: form,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Thank you, we'll get back to you as soon as possible.");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error("Something went wrong, please try again later.");
+      }
+    } catch (error) {
+      toast.error("Network error. Please try again.");
+    }
+
+    setIsSubmitting(false);
   }
 
   return (

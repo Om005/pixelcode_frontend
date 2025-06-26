@@ -18,30 +18,6 @@ export function ContactForm() {
   }
 
   const handleSubmit = async (e) => {
-    // e.preventDefault()
-    // setIsSubmitting(true)
-    // const form = { ...formData };
-    // const res = await axios.post(
-    //     import.meta.env.VITE_BACKEND_URL+"/api/user/sendemail",
-    //     form,
-    //     { headers: { "Content-Type": "application/json" } }
-    //   );
-    // // Simulate form submission delay
-    //   if (res.data.success) {
-    // toast.success( "Thank you, we'll get back to you as soon as possible.")
-    //   }
-    //   else{
-    //     toast.error("Something went wrong, please try again later.")
-    //   }
-
-    // setFormData({
-    //   name: "",
-    //   email: "",
-    //   subject: "",
-    //   message: "",
-    // })
-
-    // setIsSubmitting(false)
     e.preventDefault();
     setIsSubmitting(true);
 
